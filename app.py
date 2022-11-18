@@ -11,7 +11,7 @@ app.config['GENERATED_FILE'] = 'static/generated'
 
 api = Api(app)
 
-api.add_resource(Image,'/')
+api.add_resource(Image,'/<string:filename>')
 
 if __name__ == '__main__':
     app.run(debug=True)
