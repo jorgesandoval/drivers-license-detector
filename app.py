@@ -1,17 +1,11 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_restful import Api
-from resources.images import Image
+from resources.images import ImageREST
 
 app = Flask(__name__)
-
-# Adding path to config
-app.config['INITIAL_FILE_UPLOADS'] = 'static/uploads'
-app.config['EXISTNG_FILE'] = 'static/original'
-app.config['GENERATED_FILE'] = 'static/generated'
-
 api = Api(app)
 
-api.add_resource(Image,'/<string:filename>')
+api.add_resource(ImageREST,'/images/<string:file>')
 
 if __name__ == '__main__':
     app.run(debug=True)
